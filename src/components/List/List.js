@@ -1,8 +1,8 @@
 import styles from './List.module.scss';
 import Column from '../Column/Column';
 import { useState } from 'react';
-import { useEffect } from 'react';
 import shortid from 'shortid';
+import ColumnForm from '../ColumnForm/ColumnForm';
 
 const List = () => {
   const [columns, setColumns] = useState([
@@ -11,17 +11,11 @@ const List = () => {
     { id: 3, title: 'Games', icon: 'gamepad' },
   ]);
 
-  const [value, setValue] = useState('');
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setColumns([...columns, { id: 4, title: 'Test column' }]);
-  //   }, 2000);
-  // }, []);
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setColumns([...columns, { id: shortid(), title: value }]);
-    setValue('');
+  const addColumn = (newColumn) => {
+    setColumns([
+      ...columns,
+      { id: shortid(), title: newColumn.title, icon: newColumn.icon },
+    ]);
   };
 
   return (
@@ -39,14 +33,7 @@ const List = () => {
           <Column key={column.id} title={column.title} icon={column.icon} />
         ))}
       </section>
-      <form onSubmit={handleSubmit}>
-        <input
-          type='text'
-          value={value}
-          onChange={(event) => setValue(event.target.value)}
-        />
-        <button>Add column</button>
-      </form>
+      <ColumnForm action={addColumn} />
     </div>
   );
 };
