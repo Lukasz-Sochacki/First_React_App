@@ -2,7 +2,6 @@ import styles from './Column.module.scss';
 import Card from '../Card/Card';
 import CardForm from '../CardForm/CardForm';
 import { useSelector } from 'react-redux';
-import { use } from 'react';
 
 const Column = (props) => {
   const cards = useSelector((state) =>
