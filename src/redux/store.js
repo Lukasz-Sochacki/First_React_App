@@ -9,17 +9,15 @@ const reducer = (state, action) => {
         ...state,
         columns: [...state.columns, { ...action.payload, id: shortid() }],
       };
+    case 'ADD_CARD':
+      return {
+        ...state,
+        cards: [...state.cards, { ...action.payload, id: shortid() }],
+      };
     default:
       return state;
   }
 };
-
-// if (action.type === 'ADD_COLUMN')
-//     return {
-//       ...state,
-//       columns: [...state.columns, { ...action.payload, id: shortid() }],
-//     };
-//   return state;
 
 const store = createStore(
   reducer,
