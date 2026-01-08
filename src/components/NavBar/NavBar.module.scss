@@ -10,12 +10,6 @@
   align-items: center;
 }
 
-.links {
-  list-style-type: none;
-  display: inline-block;
-  margin: 0 20px;
-}
-
 a {
   color: white;
   text-decoration: none;
@@ -23,4 +17,13 @@ a {
     font-size: 24px;
     margin-left: 34px;
   }
+}
+
+li {
+  list-style-type: none;
+  display: inline-block;
+  margin: 0 20px;
+}
+.linkActive {
+  color: $color-warning;
 }
