@@ -12,7 +12,17 @@
   font-weight: bold;
 }
 
+.buttons {
+  display: inline-block;
+}
+
 .favoriteButton {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.removeButton {
   border: none;
   background: none;
   cursor: pointer;
